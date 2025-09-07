@@ -18,6 +18,7 @@ import {
   Trash2
 } from 'lucide-react';
 import { CharacterCreator } from './CharacterCreator';
+import { PerformanceSynthesizer } from './PerformanceSynthesizer';
 import { UnifiedCharacterOntology } from '@/lib/types/character-types';
 
 export const CastingStudioDashboard: React.FC = () => {
@@ -102,9 +103,10 @@ export const CastingStudioDashboard: React.FC = () => {
 
         {/* Main Tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-5">
+          <TabsList className="grid w-full grid-cols-6">
             <TabsTrigger value="overview">Overview</TabsTrigger>
             <TabsTrigger value="create">Create Character</TabsTrigger>
+            <TabsTrigger value="synthesizer">Performance Synthesizer</TabsTrigger>
             <TabsTrigger value="characters">Characters ({characters.length})</TabsTrigger>
             <TabsTrigger value="projects">Projects</TabsTrigger>
             <TabsTrigger value="analytics">Analytics</TabsTrigger>
@@ -187,6 +189,11 @@ export const CastingStudioDashboard: React.FC = () => {
           {/* Create Character Tab */}
           <TabsContent value="create">
             <CharacterCreator onCharacterCreated={handleCharacterCreated} />
+          </TabsContent>
+
+          {/* Performance Synthesizer Tab */}
+          <TabsContent value="synthesizer">
+            <PerformanceSynthesizer />
           </TabsContent>
 
           {/* Characters Tab */}
